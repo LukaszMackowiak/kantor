@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kantor</title>
+    <link rel="stylesheet" href="style.css" />
+
+</head>
+
+<body>
+    <header>
+        <h1>KANTOR WALUT</h1>
+    </header>
+    <div class="container">
+        <main class="main">
+            <h2>
+                <b>Kantor "San Escobar"</b>
+            </h2>
+            <img class="z1" src="sanEscobar.jfif" alt="San Escobar" />
+            <p>
+                Kurs walutowy określany jest poprzez podaż danej waluty oraz popyt na nią. Czynniki go określające
+                opierają się w głównej mierze na obrocie handlowym, wymianie usług oraz polityce walutowej danego
+                państwa. To bardzo ważne, ale nie mając tego na uwadze w naszym kantorze zawsze znajdą Państwo korzystne
+                dla siebie kujrsy walut.
+            </p>
+            <img class="z2" src="flatEarthers.png" alt="flatEarthers" />
+            <p>
+                Nasz kantor zapewnia także profesjonalną obsługę oraz bezproblemowe i elastyczne umowy gotówkowe.
+                Szczególną uwagę od zawsze przykładamy do jakości oferowanych przez nas usług oraz bezpieczeństwa
+                transakcji. Kantor San Escobar daje gwarancje najwyższej jakości usług.
+            </p>
+        </main>
+        <aside class="aside">
+            <form>
+                <article class="bilon">
+                    <p>
+                        Bilon
+                    </p>
+                    <p>
+                        Ilość: <label for="ilosc_m">
+                            <input type="number" id="ilosc_m" name="ilosc_m" required /></label>
+                    </p>
+                    <p>
+                        Przelicznik monety: <label for="przelicznik_m">
+                            <input type="number" id="przelicznik_m" name="przelicznik_m" required /></label>
+                    </p>
+                    <p class="tekst_bilon"></p>
+                    <p class="wynik_bilon"></p>
+                </article>
+                <article class="banknoty">
+                    <p>
+                        Banknoty
+                    </p>
+                    <p>
+                        Ilość: <label for="ilosc_b">
+                            <input type="number" id="ilosc_b" name="ilosc_b" required /></label>
+                    </p>
+                    <p>
+                        Przelicznik banknoty: <label for="przelicznik_b">
+                            <input type="number" id="przelicznik_b" name="przelicznik_b" required /></label>
+                    </p>
+                    <p class="tekst_banknoty"></p>
+                    <p class="wynik_banknoty"></p>
+                </article>
+                <button id="btn">Wartość w zł</button>
+                <p class="tekst_wartosc"></p>
+                <p class="wynik_wartosc"></p>
+            </form>
+        </aside>
+    </div>
+    <footer>
+        <h4>&copy;Łukasz Maćkowiak 4i</h4>
+    </footer>
+
+    <script>
+        const ilosc_m = document.querySelector("#ilosc_m");
+        const przelicznik_m = document.querySelector("#przelicznik_m");
+        const ilosc_b = document.querySelector("#ilosc_b");
+        const przelicznik_b = document.querySelector("#przelicznik_b");
+
+        const btn = document.querySelector("#btn");
+
+        const tekst_bilon = document.querySelector("#tekst_bilon");
+        const wynik_bilon = document.querySelector("#wynik_bilon");
+        const tekst_banknoty = document.querySelector("#tekst_banknoty");
+        const wynik_banknoty = document.querySelector("#wynik_banknoty");
+        const tekst_wartosc = document.querySelector("#tekst_wartosc");
+        const wynik_wartosc = document.querySelector("#wynik_wartosc");
+
+
+        btn.addEventListener('click', function (evt) {
+            evt.preventDefault();
+
+            const bilon = ilosc_m.value * przelicznik_m.value;
+            const banknoty = ilosc_b.value * przelicznik_b.value;
+
+            tekst_bilon.innerHTML = "Wartość bilonu:";
+            wynik_bilon.innerHTML = bilon;
+            wynik_bilon.style.color = '#128b2d';
+
+            tekst_banknoty.innerHTML = "Wartość banknotów:";
+            wynik_banknoty.innerHTML = banknoty;
+            wynik_banknoty.style.color = '#128b2d';
+
+            const wartosc = bilon + banknoty;
+
+            tekst_wartosc.innerHTML = "Wartość twoich środków";
+            wynik_wartosc.innerHTML = wartosc;
+            wynik_wartosc.style.color = '#0aff27';
+        }
+
+    </script>
+
+</body>
+
+</html>
